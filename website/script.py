@@ -38,7 +38,16 @@ def get_album_name(token):
     json_result = json.loads(result.content)["name"]
     return json_result
 
+def get_album_cover(token):
+    url = "https://api.spotify.com/v1/albums/21b4cDNse2AMpj94ykfuON"
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_result = json.loads(result.content)["images"]
+    return json_result
+
 token = get_token()
 album_name = get_album_name(token)
+album_cover = get_album_cover(token)
 print(token)
 print(album_name)
+print(album_cover)
