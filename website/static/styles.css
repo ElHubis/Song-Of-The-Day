@@ -8,9 +8,13 @@ body{
     background-color: rgb(17, 17, 17);
 }
 
+.song{
+    width: 50%;
+    margin: 10rem auto;
+    text-align: center;
+}
+
 h1{
     color: white;
-    text-align: center;
-    margin-top: 15rem;
     font-size: 5em;
 }

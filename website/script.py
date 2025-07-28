@@ -42,7 +42,7 @@ def get_album_cover(token):
     url = "https://api.spotify.com/v1/albums/21b4cDNse2AMpj94ykfuON"
     headers = get_auth_header(token)
     result = get(url, headers=headers)
-    json_result = json.loads(result.content)["images"]
+    json_result = json.loads(result.content)["images"][1]["url"]
     return json_result
 
 token = get_token()
