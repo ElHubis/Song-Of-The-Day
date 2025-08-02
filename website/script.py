@@ -3,6 +3,7 @@ import os
 import base64
 from requests import post, get
 import json
+import random
 
 load_dotenv()
 
@@ -31,6 +32,15 @@ def get_token():
 def get_auth_header(token):
     return {"Authorization": "Bearer " + token}
 
+def search_for_track(token):
+    letters = 'abcdefghijklmnopqrstuvwxyzåäö'
+    random_letter = random.choice(letters)
+    url = 'https://api.spotify.com/v1/search?q=%' + random_letter + '%&type=track&limit=1'
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_result = json.loads(result.content)["tracks"]["items"][0]["album"]["name"]
+    return json_result
+
 def get_album_name(token):
     url = "https://api.spotify.com/v1/albums/21b4cDNse2AMpj94ykfuON"
     headers = get_auth_header(token)
@@ -46,8 +56,10 @@ def get_album_cover(token):
     return json_result
 
 token = get_token()
+searched_track = search_for_track(token)
 album_name = get_album_name(token)
 album_cover = get_album_cover(token)
-print(token)
-print(album_name)
-print(album_cover)
+# print(token)
+print(searched_track)
+# print(album_name)
+# print(album_cover)
