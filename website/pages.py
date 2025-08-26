@@ -6,4 +6,4 @@ bp = Blueprint("pages", __name__)
 
 @bp.route("/")
 def base():
-    return render_template("base.html", album = track_name, cover = track_cover)
+    return render_template("base.html", track = track_name, cover = track_cover)
