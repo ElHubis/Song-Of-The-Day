@@ -40,35 +40,15 @@ def search_for_track(token):
     headers = get_auth_header(token)
     result = get(url, headers=headers)
     json_result = json.loads(result.content)["tracks"]["items"]
-    # json_result = json.loads(result.content)["tracks"]["items"][0]["album"]["name"]
-    # json_result = json.loads(result.content)["tracks"]["items"][0]["album"]["images"][1]["url"]
-    return json_result
-
-def get_album_name(token):
-    # url = "https://api.spotify.com/v1/albums/21b4cDNse2AMpj94ykfuON"
-    # headers = get_auth_header(token)
-    # result = get(url, headers=headers)
-    # json_result = json.loads(result.content)["name"]
-    searched_track = search_for_track(token)
-    track_name = searched_track
-    return track_name
-
-def get_album_cover(token):
-    url = "https://api.spotify.com/v1/albums/21b4cDNse2AMpj94ykfuON"
-    headers = get_auth_header(token)
-    result = get(url, headers=headers)
-    json_result = json.loads(result.content)["images"][1]["url"]
     return json_result
 
 token = get_token()
 searched_track = search_for_track(token)
 while searched_track == []:
     searched_track = search_for_track(token)
-# track_name = searched_track["name"]
 track_cover = searched_track[0]["album"]["images"][1]["url"]  
-track_name = searched_track[0]
-# album_cover = get_album_cover(token)
-# print(token)
-# print(searched_track)
+track_name = searched_track[0]["name"]
+
+print(searched_track)
 print(track_name)
 print(track_cover)
