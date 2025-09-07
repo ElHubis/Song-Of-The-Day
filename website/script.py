@@ -49,6 +49,6 @@ while searched_track == []:
 track_cover = searched_track[0]["album"]["images"][1]["url"]  
 track_name = searched_track[0]["name"]
 
-print(searched_track)
+# print(searched_track)
 print(track_name)
 print(track_cover)
