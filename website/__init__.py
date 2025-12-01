@@ -1,5 +1,4 @@
 from flask import Flask
-
 from website import pages
 
 def create_app():

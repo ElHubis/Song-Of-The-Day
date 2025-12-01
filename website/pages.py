@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
-# python  -m flask --app website run --debug
 from website.script import track_name, track_cover
+
+print(track_name)
 
 bp = Blueprint("pages", __name__)
 
