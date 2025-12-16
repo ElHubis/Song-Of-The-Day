@@ -46,7 +46,7 @@ token = get_token()
 searched_track = search_for_track(token)
 while searched_track == []:
     searched_track = search_for_track(token)
-track_cover = searched_track[0]["album"]["images"][1]["url"]  
+track_cover = searched_track[0]["album"]["images"][0]["url"]  
 track_name = searched_track[0]["name"]
 
 # print(searched_track)

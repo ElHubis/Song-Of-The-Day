@@ -8,24 +8,36 @@ body{
     background-color: rgb(17, 17, 17);
 }
 
-.song{
-    width: 50%;
-    margin: 10rem auto;
-    text-align: center;
-}
-
-.placeholder{
+.disc-container{
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.placeholder img{ 
+.disc-container img{
     width: 400px;
-    
+    height: 400px;
 }
 
-h1{
-    color: white;
-    font-size: 5em;
-    margin-bottom: 1rem;
+.sub-container{
+    position: relative;
 }
+
+.mask{
+    mask-image: url(disc-mask.svg);
+    mask-repeat: no-repeat;
+}
+
+.disc-inner{
+    opacity: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 146px;
+    top: -2px;
+}
+
+svg{
+    max-width: 108px;
+}
+
